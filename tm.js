@@ -1,4 +1,16 @@
-const TARGET = 'Hanna';  
+// ==UserScript==
+// @name         twnotifhider
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  fk you hanna
+// @run-at       document-end
+// @author       @maru_9937
+// @match        https://twitter.com/notifications*
+// @grant        none
+// ==/UserScript==
+
+console.log("Tampermonkey script started");
+const TARGET = 'Hanna';
 
 const LANGUAGES = {
     'en': {
@@ -11,7 +23,7 @@ const LANGUAGES = {
     }
 };
 
-const currentLanguage = document.documentElement.lang || 'en';  
+const currentLanguage = document.documentElement.lang || 'en';
 const LABELS = LANGUAGES[currentLanguage];
 
 const waitForNotificationCell = () =>
@@ -47,15 +59,15 @@ const waitForElement = selector =>
 ;(async () => {
     await waitForNotificationCell();
     const notificationsSection = await waitForElement(`main div[aria-label="${LABELS.homeTimeline}"] div:nth-child(3) section div[aria-label="${LABELS.notificationsTimeline}"] div`);
-    
+
     const processNotifications = () => {
         const notifications = notificationsSection.querySelectorAll('article[data-testid="notification"]');
         notifications.forEach(notification => {
-            const userElements = [...notification.querySelectorAll('div[dir="ltr"] > *')]; 
+            const userElements = [...notification.querySelectorAll('div[dir="ltr"] > *')];
             const userNames = userElements.filter(el => el.tagName === 'DIV').map(div => {
                 const span = div.querySelector('span:first-child');
                 return span ? span.textContent.trim() : '';
-            }).filter(name => name); 
+            }).filter(name => name);
             if (userNames.includes(TARGET)) {
                 if (userNames.length === 1) {
                     notification.style.display = 'none';
@@ -68,11 +80,11 @@ const waitForElement = selector =>
                         const targetElementIndex = userElements.indexOf(targetElement);
                         targetElement.remove();
                         if (targetElementIndex === 0) {
-                            userElements[targetElementIndex + 1].remove();  
+                            userElements[targetElementIndex + 1].remove();
                         } else if (targetElementIndex === userElements.length - 1) {
-                            userElements[targetElementIndex - 1].remove();  
+                            userElements[targetElementIndex - 1].remove();
                         } else {
-                            userElements[targetElementIndex - 1].remove();  
+                            userElements[targetElementIndex - 1].remove();
                         }
                     }
                 }
