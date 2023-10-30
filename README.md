@@ -1,16 +1,14 @@
 # twnotifhider
 
-`twnotifhider` is a utility to help manage notifications more efficiently.
-
 ## For Hanna
 
-**fuck you hanna**  
-**fuck you hanna**  
-**fuck you hanna**  
-**fuck you hanna**  
-**fuck you hanna**  
-**fuck you hanna**  
-**fuck you hanna**  
+<font size=7>**fk you hanna**  
+**fk you hanna**  
+**fk you hanna**  
+**fk you hanna**  
+**fk you hanna**  
+**fk you hanna**  
+**fk you hanna**</font>  
 
 ## Usage
 
