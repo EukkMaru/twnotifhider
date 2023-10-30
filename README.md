@@ -24,7 +24,7 @@ If you wish to use this program more persistently, you can consider integrating 
 
 1. Posts with multiple likes that don't display the name 'hanna' in the notification message (e.g. 'Maru and 58 more liked your post') cannot be filtered.  
    여러 사람이 마음을 누른 게시물에서 '한나'라는 이름이 알림 메시지에 표시되지 않는 경우 (예: 'Maru님 외 58명이 내 게시물을 마음에 들어 합니다') 필터링할 수 없습니다.
-    In such cases, more profile pictures are displayed than usernames, so the profile picture of 'hanna' might be visible if it is within the appropriate range.  
+In such cases, more profile pictures are displayed than usernames, so the profile picture of 'hanna' might be visible if it is within the appropriate range.  
    위와 같은 경우 사용자 이름보다 프로필 사진이 더 많이 표시되므로 경우에 따라 '한나'의 프로필 사진이 표시될 수 있습니다.
 
 2. The script doesn't 'block' hanna but rather visually removes 'hanna' from your notification page. This means it's not a permanent solution, and others can still see Hanna's likes.  
