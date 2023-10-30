@@ -1,4 +1,4 @@
-const TARGET_NAME = 'Hanna';  
+const TARGET = 'Hanna';  
 
 ;(async () => {
     const waitForElement = selector =>
@@ -26,16 +26,16 @@ const TARGET_NAME = 'Hanna';
                 const span = div.querySelector('span:first-child');
                 return span ? span.textContent.trim() : '';
             }).filter(name => name); 
-            if (userNames.includes(TARGET_NAME)) {
+            if (userNames.includes(TARGET)) {
                 if (userNames.length === 1) {
                     
                     notification.style.display = 'none';
                 } else {
-                    const targetIndex = userNames.indexOf(TARGET_NAME);
+                    const targetIndex = userNames.indexOf(TARGET);
                     const pfps = [...notification.querySelectorAll('div > ul[role="list"] > div')];
                     
                     pfps[targetIndex].remove();
-                    const targetElement = userElements.find(el => el.textContent.trim() === TARGET_NAME);
+                    const targetElement = userElements.find(el => el.textContent.trim() === TARGET);
                     if (targetElement) {
                         const targetElementIndex = userElements.indexOf(targetElement);
                         targetElement.remove();
