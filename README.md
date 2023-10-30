@@ -36,6 +36,9 @@ If you wish to use this program more persistently, you can consider integrating 
 4. The script cannot remove the '1' badge when receiving new notifications. Reloading resets the script, which is counterintuitive. I am looking for solutions. Until then, you will have to refresh and re-run the script after receiving new notifications. Or, you can automate this process with Tampermonkey.
    이 스크립트는 새로운 알림을 받을 때 알림에 뜨는 '1' 배지를 제거할 수 없습니다. 페이지를 새로고침하면 스크립트가 재설정되어 비직관적입니다. 해결책을 찾고 있습니다. 그 때까지는 새로고침 후 스크립트를 재실행해야 합니다. 또는, 가능한 경우 탬퍼몽키를 활용해 이 과정을 자동화할 수 있습니다.
 
+5. So far the script was only tested in an English environment, so it may not work properly in other languages.  
+   지금까지 이 스크립트는 영어 환경에서만 테스트되었으므로 다른 언어에서는 제대로 작동하지 않을 수 있습니다.
+
 ## Warning
 
 Always ensure that you understand and trust any code that you run in your browser console or install as a userscript. Running malicious or untrusted code can compromise the security of your data and personal information.
