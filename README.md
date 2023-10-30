@@ -23,7 +23,7 @@ If you wish to use this program more persistently, you can consider integrating 
 ## Known Issues
 
 1. Posts with multiple likes that don't display the name 'hanna' in the notification message (e.g. 'Maru and 58 more liked your post') cannot be filtered.  
-   여러 사람이 마음을 누른 게시물에서 '한나'라는 이름이 알림 메시지에 표시되지 않는 경우 (예: 'Maru와 58명이 게시물을 좋아했습니다') 필터링할 수 없습니다.
+   여러 사람이 마음을 누른 게시물에서 '한나'라는 이름이 알림 메시지에 표시되지 않는 경우 (예: 'Maru님 외 58명이 내 게시물을 마음에 들어 합니다') 필터링할 수 없습니다.
     In such cases, more profile pictures are displayed than usernames, so the profile picture of 'hanna' might be visible if it is within the appropriate range.  
    위와 같은 경우 사용자 이름보다 프로필 사진이 더 많이 표시되므로 경우에 따라 '한나'의 프로필 사진이 표시될 수 있습니다.
 
@@ -38,6 +38,7 @@ If you wish to use this program more persistently, you can consider integrating 
 
 5. So far the script was only tested in an English environment, so it may not work properly in other languages.  
    지금까지 이 스크립트는 영어 환경에서만 테스트되었으므로 다른 언어에서는 제대로 작동하지 않을 수 있습니다.
+   (한국어 환경에서는 작동하지 않습니다-- 현재 해결 중입니다.)
 
 ## Warning
 
