@@ -1,5 +1,20 @@
 const TARGET = 'Hanna';  
 
+const LANGUAGES = {
+    'en': {
+        homeTimeline: 'Home timeline',
+        notificationsTimeline: 'Timeline: Notifications'
+    },
+    'ko': {
+        homeTimeline: '홈 타임라인',
+        notificationsTimeline: '타임라인: 알림'
+    }
+};
+
+const currentLanguage = document.documentElement.lang || 'en';  
+
+const LABELS = LANGUAGES[currentLanguage];
+
 ;(async () => {
     const waitForElement = selector =>
         new Promise(resolve => {
@@ -17,7 +32,7 @@ const TARGET = 'Hanna';
             });
             observer.observe(document.body, { childList: true, subtree: true });
         });
-    const notificationsSection = await waitForElement('main div[aria-label="Home timeline"] div:nth-child(3) section div[aria-label="Timeline: Notifications"] div');
+        const notificationsSection = await waitForElement(`main div[aria-label="${LABELS.homeTimeline}"] div:nth-child(3) section div[aria-label="${LABELS.notificationsTimeline}"] div`);
     const processNotifications = () => {
         const notifications = notificationsSection.querySelectorAll('article[data-testid="notification"]');
         notifications.forEach(notification => {
