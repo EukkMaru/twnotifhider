@@ -10,7 +10,7 @@
 
 Simply paste the program code (`script.js`) into your browser's console (usually accessible via `F12` on most browsers). Note that the program will cease to run upon refreshing the page.
 
-프로그램 코드 (`script.js) 를 브라우저의 콘솔에 붙여 넣으세요 (대부분의 브라우저에서는 `F12`로 액세스 가능합니다). 페이지를 새로고침하면 프로그램이 실행되지 않습니다. 다시 실행하려면 콘솔에 다시 붙여 넣으십시오.
+프로그램 코드 (`script.js`) 를 브라우저의 콘솔에 붙여 넣으세요 (대부분의 브라우저에서는 `F12`로 액세스 가능합니다). 페이지를 새로고침하면 프로그램이 실행되지 않습니다. 다시 실행하려면 콘솔에 다시 붙여 넣으십시오.
 
 ### Tampermonkey
 
