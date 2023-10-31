@@ -50,7 +50,7 @@ Always ensure that you understand and trust any code that you run in your browse
 
 ## License
 
-[MIT License](LICENSE)
+[MIT License](LICENSE.md)
 
 ## Credits
 
