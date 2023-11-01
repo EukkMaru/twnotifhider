@@ -1,4 +1,4 @@
-const TARGET = 'Hanna';  
+const TARGETS = ['Hanna', 'Jane']; 
 
 const LANGUAGES = {
     'en': {
@@ -56,26 +56,30 @@ const waitForElement = selector =>
                 const span = div.querySelector('span:first-child');
                 return span ? span.textContent.trim() : '';
             }).filter(name => name); 
-            if (userNames.includes(TARGET)) {
-                if (userNames.length === 1) {
-                    notification.style.display = 'none';
-                } else {
-                    const targetIndex = userNames.indexOf(TARGET);
-                    const pfps = [...notification.querySelectorAll('div > ul[role="list"] > div')];
-                    pfps[targetIndex].remove();
-                    const targetElement = userElements.find(el => el.textContent.trim() === TARGET);
-                    if (targetElement) {
-                        const targetElementIndex = userElements.indexOf(targetElement);
-                        targetElement.remove();
-                        if (targetElementIndex === 0) {
-                            userElements[targetElementIndex + 1].remove();  
-                        } else if (targetElementIndex === userElements.length - 1) {
-                            userElements[targetElementIndex - 1].remove();  
-                        } else {
-                            userElements[targetElementIndex - 1].remove();  
+            
+            if (userNames.some(name => TARGETS.includes(name))) {
+                const matchingTargets = userNames.filter(name => TARGETS.includes(name));
+                matchingTargets.forEach(TARGET => {
+                    if (userNames.length === 1) {
+                        notification.style.display = 'none';
+                    } else {
+                        const targetIndex = userNames.indexOf(TARGET);
+                        const pfps = [...notification.querySelectorAll('div > ul[role="list"] > div')];
+                        pfps[targetIndex].remove();
+                        const targetElement = userElements.find(el => el.textContent.trim() === TARGET);
+                        if (targetElement) {
+                            const targetElementIndex = userElements.indexOf(targetElement);
+                            targetElement.remove();
+                            if (targetElementIndex === 0) {
+                                userElements[targetElementIndex + 1].remove();  
+                            } else if (targetElementIndex === userElements.length - 1) {
+                                userElements[targetElementIndex - 1].remove();  
+                            } else {
+                                userElements[targetElementIndex - 1].remove();  
+                            }
                         }
                     }
-                }
+                });
             }
         });
     };

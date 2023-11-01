@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 console.log("Tampermonkey script started");
-const TARGET = 'Hanna';
+const TARGETS = ['Hanna', 'Jane'];  // Updated to an array of target names
 
 const LANGUAGES = {
     'en': {
@@ -23,7 +23,7 @@ const LANGUAGES = {
     }
 };
 
-const currentLanguage = document.documentElement.lang || 'en';
+const currentLanguage = document.documentElement.lang || 'en';  
 const LABELS = LANGUAGES[currentLanguage];
 
 const waitForNotificationCell = () =>
@@ -59,35 +59,40 @@ const waitForElement = selector =>
 ;(async () => {
     await waitForNotificationCell();
     const notificationsSection = await waitForElement(`main div[aria-label="${LABELS.homeTimeline}"] div:nth-child(3) section div[aria-label="${LABELS.notificationsTimeline}"] div`);
-
+    
     const processNotifications = () => {
         const notifications = notificationsSection.querySelectorAll('article[data-testid="notification"]');
         notifications.forEach(notification => {
-            const userElements = [...notification.querySelectorAll('div[dir="ltr"] > *')];
+            const userElements = [...notification.querySelectorAll('div[dir="ltr"] > *')]; 
             const userNames = userElements.filter(el => el.tagName === 'DIV').map(div => {
                 const span = div.querySelector('span:first-child');
                 return span ? span.textContent.trim() : '';
-            }).filter(name => name);
-            if (userNames.includes(TARGET)) {
-                if (userNames.length === 1) {
-                    notification.style.display = 'none';
-                } else {
-                    const targetIndex = userNames.indexOf(TARGET);
-                    const pfps = [...notification.querySelectorAll('div > ul[role="list"] > div')];
-                    pfps[targetIndex].remove();
-                    const targetElement = userElements.find(el => el.textContent.trim() === TARGET);
-                    if (targetElement) {
-                        const targetElementIndex = userElements.indexOf(targetElement);
-                        targetElement.remove();
-                        if (targetElementIndex === 0) {
-                            userElements[targetElementIndex + 1].remove();
-                        } else if (targetElementIndex === userElements.length - 1) {
-                            userElements[targetElementIndex - 1].remove();
-                        } else {
-                            userElements[targetElementIndex - 1].remove();
+            }).filter(name => name); 
+            
+            // Check if any of the usernames match the targets
+            if (userNames.some(name => TARGETS.includes(name))) {
+                const matchingTargets = userNames.filter(name => TARGETS.includes(name));
+                matchingTargets.forEach(TARGET => {
+                    if (userNames.length === 1) {
+                        notification.style.display = 'none';
+                    } else {
+                        const targetIndex = userNames.indexOf(TARGET);
+                        const pfps = [...notification.querySelectorAll('div > ul[role="list"] > div')];
+                        pfps[targetIndex].remove();
+                        const targetElement = userElements.find(el => el.textContent.trim() === TARGET);
+                        if (targetElement) {
+                            const targetElementIndex = userElements.indexOf(targetElement);
+                            targetElement.remove();
+                            if (targetElementIndex === 0) {
+                                userElements[targetElementIndex + 1].remove();  
+                            } else if (targetElementIndex === userElements.length - 1) {
+                                userElements[targetElementIndex - 1].remove();  
+                            } else {
+                                userElements[targetElementIndex - 1].remove();  
+                            }
                         }
                     }
-                }
+                });
             }
         });
     };
