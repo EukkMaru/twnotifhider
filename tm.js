@@ -5,7 +5,7 @@
 // @description  fk you hanna
 // @run-at       document-end
 // @author       @maru_9937
-// @match        https://twitter.com/notifications*
+// @match        https://twitter.com/*
 // @grant        none
 // ==/UserScript==
 
