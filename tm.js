@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         twnotifhider
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  fk you hanna
 // @run-at       document-end
 // @author       @maru_9937
