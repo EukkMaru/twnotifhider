@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 console.log("Tampermonkey script started");
-const TARGETS = ['Hanna', 'Jane'];  // Updated to an array of target names
+const TARGETS = ['Hanna', 'Jane'];  
 
 const LANGUAGES = {
     'en': {
@@ -25,6 +25,9 @@ const LANGUAGES = {
 
 const currentLanguage = document.documentElement.lang || 'en';  
 const LABELS = LANGUAGES[currentLanguage];
+
+let notificationsSection;
+let observer;
 
 const waitForNotificationCell = () =>
     new Promise(resolve => {
@@ -56,9 +59,14 @@ const waitForElement = selector =>
         observer.observe(document.body, { childList: true, subtree: true });
     });
 
-;(async () => {
-    await waitForNotificationCell();
-    const notificationsSection = await waitForElement(`main div[aria-label="${LABELS.homeTimeline}"] div:nth-child(3) section div[aria-label="${LABELS.notificationsTimeline}"] div`);
+const initializeScript = async () => {
+    if (observer) {
+        observer.disconnect();
+    }
+
+    if (!document.body.contains(notificationsSection)) {
+        notificationsSection = await waitForElement(`main div[aria-label="${LABELS.homeTimeline}"] div:nth-child(3) section div[aria-label="${LABELS.notificationsTimeline}"] div`);
+    }
     
     const processNotifications = () => {
         const notifications = notificationsSection.querySelectorAll('article[data-testid="notification"]');
@@ -68,37 +76,45 @@ const waitForElement = selector =>
                 const span = div.querySelector('span:first-child');
                 return span ? span.textContent.trim() : '';
             }).filter(name => name); 
-            
-            // Check if any of the usernames match the targets
-            if (userNames.some(name => TARGETS.includes(name))) {
-                const matchingTargets = userNames.filter(name => TARGETS.includes(name));
-                matchingTargets.forEach(TARGET => {
-                    if (userNames.length === 1) {
-                        notification.style.display = 'none';
-                    } else {
-                        const targetIndex = userNames.indexOf(TARGET);
-                        const pfps = [...notification.querySelectorAll('div > ul[role="list"] > div')];
-                        pfps[targetIndex].remove();
-                        const targetElement = userElements.find(el => el.textContent.trim() === TARGET);
-                        if (targetElement) {
-                            const targetElementIndex = userElements.indexOf(targetElement);
-                            targetElement.remove();
-                            if (targetElementIndex === 0) {
-                                userElements[targetElementIndex + 1].remove();  
-                            } else if (targetElementIndex === userElements.length - 1) {
-                                userElements[targetElementIndex - 1].remove();  
-                            } else {
-                                userElements[targetElementIndex - 1].remove();  
-                            }
+            if (TARGETS.some(target => userNames.includes(target))) {
+                if (userNames.length === 1) {
+                    notification.style.display = 'none';
+                } else {
+                    const targetIndex = userNames.findIndex(name => TARGETS.includes(name));
+                    const pfps = [...notification.querySelectorAll('div > ul[role="list"] > div')];
+                    pfps[targetIndex].remove();
+                    const targetElement = userElements.find(el => TARGETS.includes(el.textContent.trim()));
+                    if (targetElement) {
+                        const targetElementIndex = userElements.indexOf(targetElement);
+                        targetElement.remove();
+                        if (targetElementIndex === 0) {
+                            userElements[targetElementIndex + 1].remove();  
+                        } else if (targetElementIndex === userElements.length - 1) {
+                            userElements[targetElementIndex - 1].remove();  
+                        } else {
+                            userElements[targetElementIndex - 1].remove();  
                         }
                     }
-                });
+                }
             }
         });
     };
 
     processNotifications();
 
-    const observer = new MutationObserver(processNotifications);
+    observer = new MutationObserver(processNotifications);
     observer.observe(notificationsSection, { childList: true, subtree: true });
-})();
+};
+
+initializeScript();
+
+const bodyObserver = new MutationObserver(() => {
+    if (!document.body.contains(notificationsSection)) {
+        initializeScript();
+    }
+});
+bodyObserver.observe(document.body, { childList: true, subtree: true });
+
+setInterval(() => {
+    initializeScript();
+}, 10000);
