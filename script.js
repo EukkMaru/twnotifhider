@@ -50,6 +50,7 @@ const waitForElement = selector =>
 const initializeScript = async () => {
     if (observer) {
         observer.disconnect();
+        console.log('Disconnected observer');
     }
 
     if (!document.body.contains(notificationsSection)) {
@@ -95,14 +96,17 @@ const initializeScript = async () => {
 };
 
 initializeScript();
+console.log('Initial execution complete');
 
 const bodyObserver = new MutationObserver(() => {
     if (!document.body.contains(notificationsSection)) {
         initializeScript();
+        console.log('Reinitialization due to body mutation');
     }
 });
 bodyObserver.observe(document.body, { childList: true, subtree: true });
 
 setInterval(() => {
     initializeScript();
+    console.log('Reinitialization due to timer')
 }, 10000);
