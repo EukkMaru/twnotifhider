@@ -31,6 +31,32 @@ Tampermonkey 사용을 위해서는 `script.js` 대신 `tm.js`를 사용하십�
 1. [TamperMonkey Chrome 확장 프로그램 페이지](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)로 이동합니다.<br>
 2. 'Chrome에 추가'를 클릭하여 확장 프로그램을 설치합니다.
 
+#### Script Setup
+
+After installation, you'll see the TamperMonkey icon in your browser's extension area (Puzzle icon in the top right). Click on it, and select 'Create a new script'
+
+설치 후, 브라우저의 확장 프로그램 영역 (우상단의 퍼즐 모양 아이콘)에 TamperMonkey 아이콘이 표시됩니다. 탬퍼몽키 아이콘을 클릭하고 '새 스크립트 만들기'를 선택합니다.
+
+![TM icon](./readme_screenshots/ss0.png)
+![Create a new script](./readme_screenshots/ss1.png)
+
+You will see a default script template. Delete all of the default code and paste the code from [tm.js](https://github.com/EukkMaru/twnotifhider/blob/main/tm.js) into the editor.
+
+기본 스크립트 템플릿이 있을겁니다. 이미 쓰여있는 기본 코드를 모두 지우고 [tm.js](https://github.com/EukkMaru/twnotifhider/blob/main/tm.js)의 코드를 붙여 넣으세요.
+
+![Copy the code from tm.js](./readme_screenshots/ss2.png)
+![Paste the code into the editor](./readme_screenshots/ss3.png)
+
+Then press `Ctrl/Cmd` + `S` to save the script. You can now close the editor.
+
+`Ctrl/Cmd` + `S`를 눌러 스크립트를 저장합니다. 이제 에디터를 닫아도 됩니다.
+
+Refresh the twitter page and you should see the script running.
+
+트위터 페이지를 새로고침하면 스크립트가 실행되는 것을 볼 수 있습니다.
+
+![Script running](./readme_screenshots/ss4.png)
+
 
 ## Known Issues
 
