@@ -27,7 +27,7 @@ Tampermonkey 사용을 위해서는 `script.js` 대신 `tm.js`를 사용하십�
 1. Navigate to the [TamperMonkey Chrome extension page](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo).
 2. Click on 'Add to Chrome' to install the extension.
 <br>
-1. [TamperMonkey Chrome 확장 프로그램 페이지](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)로 이동합니다.
+1. [TamperMonkey Chrome 확장 프로그램 페이지](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)로 이동합니다.<br>
 2. 'Chrome에 추가'를 클릭하여 확장 프로그램을 설치합니다.
 
 
