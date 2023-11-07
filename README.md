@@ -58,6 +58,13 @@ Refresh the twitter page and you should see the script running.
 ![Script running](./readme_screenshots/ss4.png)
 
 
+## Updates
+
+This script does not support automatic updates. You will have to manually update the script by pasting the new code into the userscript manager (or browser console) whenever a new patch is released. Problems may occur if you use the deprecated version of the script.
+
+이 스크립트는 자동 업데이트를 지원하지 않습니다. 새로운 패치가 출시될 때마다 새 코드를 유저스크립트 관리자 (또는 브라우저 콘솔)에 붙여 넣어야 스크립트를 수동으로 업데이트할 수 있습니다. 더 이상 지원되지 않는 버전의 스크립트를 사용하면 문제가 발생할 수 있습니다.
+
+
 ## Known Issues
 
 1. Posts with multiple likes that don't display the name 'hanna' in the notification message (e.g. 'Maru and 58 more liked your post') cannot be filtered.<br>
