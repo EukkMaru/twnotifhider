@@ -20,7 +20,15 @@ For Tampermonkey integration, use `tm.js` instead of `script.js`.
 이 프로그램을 지속적으로 사용하고 싶다면, 탬퍼몽키와 같은 유저스크립트 관리자에 통합하는 것을 고려할 수 있습니다. 이렇게 하면 페이지를 방문할 때마다 코드를 수동으로 붙여 넣지 않아도 프로그램이 자동으로 실행됩니다.
 Tampermonkey 사용을 위해서는 `script.js` 대신 `tm.js`를 사용하십시오.
 
-(Tampermonkey 설명은 추후에 추가 예정입니다)
+### Tampermonkey extension guide (Chrome)
+
+#### Downloading TamperMonkey Extension
+
+1. Navigate to the [TamperMonkey Chrome extension page](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo).
+2. Click on 'Add to Chrome' to install the extension.
+
+![TamperMonkey Chrome Extension Download](./readme_screenshots/ss1.png)
+
 
 ## Known Issues
 
