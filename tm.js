@@ -110,12 +110,22 @@ const initializeScript = async () => {
 initializeScript();
 console.log('Initial execution complete');
 
-const bodyObserver = new MutationObserver(() => {
+const debounce = (func, delay) => {
+    let inDebounce;
+    return function() {
+      const context = this;
+      const args = arguments;
+      clearTimeout(inDebounce);
+      inDebounce = setTimeout(() => func.apply(context, args), delay);
+    };
+};
+
+const bodyObserver = new MutationObserver(debounce(() => {
     if (!document.body.contains(notificationsSection)) {
         initializeScript();
-        console.log('Reinitialization due to body mutation');
     }
-});
+}, 5000));
+
 bodyObserver.observe(document.body, { childList: true, subtree: true });
 
 setInterval(() => {
