@@ -84,8 +84,8 @@ In such cases, more profile pictures are displayed than usernames, so the profil
 5. So far the script only supports English and Korean environment. You can either add your language's aria-label attribute yourself in the LANGUAGES object or conact me to update the code for your language.<br>
     현재 이 스크립트는 한국어와 영어만 지원합니다. 다른 언어에서도 사용하기를 원하시면 LANGUAGES 오브젝트에 직접 본인 언어의 aria-label 속성을 추가하시거나, 저에게 연락하여 코드를 업데이트해달라고 요청하십시오.
 
-6. The script ceases to function after few dozen second has elapsed since refresh; refreshing the page (`F5`) temporarily fixes it. A fix for this issue has been implemented but still requires testing. If you encounter this issue, please contact me.<br>
-   페이지를 새로고침한 후 몇십 초가 지나면 스크립트가 작동을 멈춥니다. 페이지를 새로고침하면 임시로 해결됩니다. 이 문제를 해결하기 위한 수정이 구현되었지만 아직 테스트가 필요합니다. 이 문제가 발생하면 저에게 연락해주세요.<br>   
+6. ~~The script ceases to function after few dozen second has elapsed since refresh; refreshing the page (`F5`) temporarily fixes it. A fix for this issue has been implemented but still requires testing. If you encounter this issue, please contact me.~~<br>
+   ~~페이지를 새로고침한 후 몇십 초가 지나면 스크립트가 작동을 멈춥니다. 페이지를 새로고침하면 임시로 해결됩니다. 이 문제를 해결하기 위한 수정이 구현되었지만 아직 테스트가 필요합니다. 이 문제가 발생하면 저에게 연락해주세요.~~<br>   
 
 ## Warning
 
