@@ -93,6 +93,9 @@ Always ensure that you understand and trust any code that you run in your browse
 
 브라우저 콘솔에서 실행하거나 사용자 스크립트로 설치하는 모든 코드를 이해하고 신뢰하는지 항상 확인하세요. 악의적인 또는 신뢰할 수 없는 코드를 실행하면 데이터와 개인 정보의 보안이 침해될 수 있습니다.
 
+## Changelog
+[Changelog](CHANGELOG.md)
+
 ## License
 
 [MIT License](LICENSE.md)
